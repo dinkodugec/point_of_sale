@@ -18,6 +18,12 @@
                 <x-text-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus />
                 
             </div>
+              {{--   <!-- Username -->
+                <div>
+                    <x-input-label for="username" :value="__('username')" />
+                    <x-text-input id="username' class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
+                    
+                </div> --}}
 
             <!-- Password -->
             <div class="mt-4">

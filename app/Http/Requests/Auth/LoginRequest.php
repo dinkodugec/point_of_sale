@@ -32,6 +32,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'login' => ['required', 'string'],
+           /*  'username' => ['required', 'string'], you can log with username*/
             'password' => ['required', 'string'],
         ];
     }
@@ -54,10 +55,12 @@ class LoginRequest extends FormRequest
 
 
         if (!$user || !Hash::check($this->password, $user->password)) {
+            //if (!Auth::attempt($this->only('username', 'password') $this->boolean('remember'))){;
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
                 'login' => trans('auth.failed'),
+                //'username' => trans('auth.failed'),
             ]);
         }
 
@@ -75,7 +78,7 @@ class LoginRequest extends FormRequest
     public function ensureIsNotRateLimited()
     {
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
-            return;
+            return;                                        //how many time you can attempt to login
         }
 
         event(new Lockout($this));
