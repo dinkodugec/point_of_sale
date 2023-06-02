@@ -1,6 +1,8 @@
 @extends('admin_dashboard')
 
 @section('admin')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     
 <div class="content">
 
@@ -47,7 +49,7 @@ alt="profile-image">
 
 </div>                                    
 
-<ul class="social-list list-inline mt-3 mb-0">
+{{-- <ul class="social-list list-inline mt-3 mb-0">
     <li class="list-inline-item">
         <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
     </li>
@@ -60,7 +62,7 @@ alt="profile-image">
     <li class="list-inline-item">
         <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
     </li>
-</ul>   
+</ul>  --}}  
 </div>                                 
 </div> <!-- end card -->
 
@@ -79,13 +81,14 @@ alt="profile-image">
 <!-- end timeline content-->
 
  <div class="tab-pane" id="settings">
-        <form>
+        <form class="form-control" method="POST" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data">
+            @csrf
             <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i> Personal Info</h5>
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="name" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="name" value="{{ $adminData->name }}">
+                        <input type="text" name="name" class="form-control" id="name" value="{{ $adminData->name }}">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -101,22 +104,17 @@ alt="profile-image">
                         <input type="text" name="phone" class="form-control" id="phone" value="{{ $adminData->phone }}">
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="lastname" class="form-label">Phone</label>
-                        <input type="text" name="phone" class="form-control" id="lastname"  value="{{ $adminData->phone }}" >
-                    </div>
-                </div> <!-- end col -->
+                <!-- end col -->
                <div class="col-md-12">
                     <div class="mb-3">
                      <label for="example-fileinput" class="form-label">Admin Profile Image</label>
-                     <input type="file" id="example-fileinput" class="form-control">
+                     <input type="file" name="photo" id="image" class="form-control">
                    </div>
               </div> <!-- end col -->
              <div class="col-md-12">
                <div class="mb-3">
                  <label for="example-fileinput" class="form-label"> </label>
-                <img src="{{ (!empty($adminData->photo)) ? url('upload/admin_image/'.$adminData->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-lg img-thumbnail"
+                <img id="showImage" src="{{ (!empty($adminData->photo)) ? url('upload/admin_image/'.$adminData->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-lg img-thumbnail"
                          alt="profile-image">
               </div>
             </div> <!-- end col -->
@@ -144,5 +142,17 @@ alt="profile-image">
 
 </div> <!-- content -->
 
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$('#image').change(function(e){
+			var reader = new FileReader();
+			reader.onload =  function(e){
+				$('#showImage').attr('src',e.target.result);
+			}
+			reader.readAsDataURL(e.target.files['0']);
+		});
+	});
+</script>
 
 @endsection
