@@ -56,15 +56,21 @@
 
                                     <div class="mb-3">
                                         <label for="login" class="form-label">Email - Name - Phone</label>
-                                        <input class="form-control" name="login" type="text" id="login" required="" placeholder="Enter your credentials">
+                                        <input class="form-control @error('login') is-invalid @enderror" name="login" type="text" id="login" required="" placeholder="Enter your credentials">
+                                        @error('login')
+                                            <span class="text-danger"> {{ $message }} </span>
+                                       @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Password</label>
                                         <div class="input-group input-group-merge">
-                                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password">
+                                            <input type="password" name="password" id="password" class="form-control  @error('password') is-invalid @enderror" placeholder="Enter your password">
                                             <div class="input-group-text" data-password="false">
                                                 <span class="password-eye"></span>
+                                                @error('password')
+                                                <span class="text-danger"> {{ $message }} </span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
