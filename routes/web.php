@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,13 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
     Route::get('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');
     Route::post('/update/password', [AdminController::class, 'UpdatePassword'])->name('update.password');
+
+    /// Employee - group controller 
+      Route::controller(EmployeeController::class)->group(function(){
+
+      Route::get('/all/employee','AllEmployee')->name('all.employee');
+      Route::get('/add/employee','AddEmployee')->name('add.employee');
+    });
+    
+
 });  //auth middleware
