@@ -93,7 +93,6 @@
 
 
       <div class="col-md-6">
-        <div class="mb-3">
             <label for="firstname" class="form-label">Employee Experience    </label>
            <select name="experience" class="form-select" id="example-select">
                     <option selected="">Select Year </option>
