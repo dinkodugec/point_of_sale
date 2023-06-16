@@ -11,6 +11,15 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
 
+  {{--       <style>
+               body {
+                background: url('https://ak2.picdn.net/shutterstock/videos/9057502/thumb/12.jpg');
+              background-repeat: no-repeat;
+              background-attachment: fixed; 
+              background-size: 100% 100%;
+            }
+        </style> --}}
+
 		<!-- Bootstrap css -->
 		<link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 		<!-- App css -->
@@ -22,7 +31,7 @@
 
     </head>
 
-    <body class="authentication-bg authentication-bg-pattern">
+    <body style="background-image: url('{{ asset('backend/assets/images/bg-auth.jpg')}}');">
 
         <div class="account-pages mt-5 mb-5">
             <div class="container">
