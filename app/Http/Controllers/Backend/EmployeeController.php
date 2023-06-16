@@ -140,4 +140,22 @@ class EmployeeController extends Controller
 
     } 
 
+    public function DeleteEmployee($id)
+    {
+
+        $employee_img = Employee::findOrFail($id);
+        $img = $employee_img->image;
+        unlink($img);
+
+        Employee::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Employee Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
+    } // End Method 
+
 }
