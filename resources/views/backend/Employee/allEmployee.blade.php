@@ -49,6 +49,11 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->phone }}</td>
                                 <td>{{ $item->salary }}</td>
+                                <td>
+                                    <a href="{{ route('edit.employee',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
+                                    <a href="" class="btn btn-danger rounded-pill waves-effect waves-light">Delete</a>
+                                    
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

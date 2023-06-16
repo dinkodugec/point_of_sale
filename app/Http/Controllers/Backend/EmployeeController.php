@@ -69,4 +69,12 @@ class EmployeeController extends Controller
 
         return redirect()->route('all.employee')->with($notification); 
     }
+
+    public function EditEmployee($id)
+    {
+
+        $employee = Employee::findOrFail($id);
+        return view('backend.employee.edit_employee',compact('employee'));
+
+    } 
 }

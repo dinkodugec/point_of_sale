@@ -49,6 +49,7 @@ Route::middleware(['auth'])->group(function() {
       Route::get('/all/employee','AllEmployee')->name('all.employee');
       Route::get('/add/employee','AddEmployee')->name('add.employee');
       Route::post('/store/employee','StoreEmployee')->name('employee.store');
+      Route::get('/edit/employee/{id}','EditEmployee')->name('edit.employee');
     });
     
 
