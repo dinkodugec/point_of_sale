@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\EmployeeController;
+use App\Http\Controllers\Backend\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,17 @@ Route::middleware(['auth'])->group(function() {
       Route::get('/edit/employee/{id}','EditEmployee')->name('edit.employee');
       Route::post('/update/employee','UpdateEmployee')->name('employee.update');
       Route::get('/delete/employee/{id}','DeleteEmployee')->name('delete.employee');
+    });
+
+    /// Customer All Route 
+Route::controller(CustomerController::class)->group(function(){
+
+    Route::get('/all/customer','AllCustomer')->name('all.customer');
+    Route::get('/add/employee','AddEmployee')->name('add.employee');
+    Route::post('/store/employee','StoreEmployee')->name('employee.store');
+    Route::get('/edit/employee/{id}','EditEmployee')->name('edit.employee');
+    Route::post('/update/employee','UpdateEmployee')->name('employee.update');
+    Route::get('/delete/employee/{id}','DeleteEmployee')->name('delete.employee');
     });
     
 
