@@ -72,10 +72,10 @@
                                 <a href="{{ route('all.supplier') }}">All Supplier</a>
                             </li>
                             <li>
-                                <a href="email-read.html">Read Email</a>
+                                <a href="{{ route('add.supplier') }}">Add Supplier</a>
                             </li>
                             <li>
-                                <a href="email-compose.html">Add Supplier</a>
+                                <a href="{{ route('add.supplier') }}">Add Supplier</a>
                             </li>
                             <li>
                                 <a href="email-templates.html">Email Templates</a>
