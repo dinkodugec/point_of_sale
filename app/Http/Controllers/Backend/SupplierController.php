@@ -151,7 +151,8 @@ class SupplierController extends Controller
 
 
 
- public function DeleteSupplier($id){
+ public function DeleteSupplier($id)
+ {
 
         $supplier_img = Supplier::findOrFail($id);
         $img = $supplier_img->image;
@@ -166,6 +167,13 @@ class SupplierController extends Controller
 
         return redirect()->back()->with($notification); 
 
-    } // End Method 
+    } 
 
+    public function DetailsSupplier($id)
+    {
+
+        $supplier = Supplier::findOrFail($id);
+        return view('backend.supplier.details_supplier',compact('supplier'));
+
+    } 
 }
