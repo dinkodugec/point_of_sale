@@ -69,6 +69,39 @@ class SalaryController extends Controller
         $salary = AdvanceSalary::latest()->get();
         return view('backend.salary.all_advance_salary',compact('salary'));
 
-    }// End Method 
+    }
+
+    public function EditAdvanceSalary($id)
+    {
+        $employee = Employee::latest()->get();
+        $salary = AdvanceSalary::findOrFail($id);
+        return view('backend.salary.edit_advance_salary',compact('salary','employee'));
+
+    }
+
+
+    public function AdvanceSalaryUpdate(Request $request)
+    {
+
+        $salary_id = $request->id;
+
+         AdvanceSalary::findOrFail($salary_id)->update([
+                'employee_id' => $request->employee_id,
+                'month' => $request->month,
+                'year' => $request->year,
+                'advance_salary' => $request->advance_salary,
+                'created_at' => Carbon::now(), 
+            ]);
+
+         $notification = array(
+            'message' => 'Advance Salary Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.advance.salary')->with($notification); 
+
+
+    }
+
 
 }
