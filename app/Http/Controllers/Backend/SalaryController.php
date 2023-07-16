@@ -148,5 +148,13 @@ class SalaryController extends Controller
     
         }
 
+        public function MonthSalary()
+        {
+
+            $paidsalary = PaySalary::latest()->get();
+            return view('backend.salary.month_salary',compact('paidsalary'));
+    
+        }
+
 
 }
