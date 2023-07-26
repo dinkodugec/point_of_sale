@@ -107,7 +107,7 @@ Route::controller(SupplierController::class)->group(function(){
     ///Attendence All Route 
     Route::controller(AttendenceController::class)->group(function(){
       Route::get('/employee/attend/list','EmployeeAttendenceList')->name('employee.attend.list'); 
-    
+      Route::get('/add/employee/attend','AddEmployeeAttendence')->name('add.employee.attend'); 
     });
 
 });  //auth middleware
