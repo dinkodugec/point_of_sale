@@ -60,4 +60,12 @@ class AttendenceController extends Controller
 
     }
 
+    public function ViewEmployeeAttendence($date)
+    {
+
+        $details = Attendence::where('date',$date)->get();
+        return view('backend.attendence.details_employee_attend',compact('details'));
+
+    }
+
 } 
