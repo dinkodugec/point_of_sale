@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\SalaryController;
 use App\Http\Controllers\Backend\AttendenceController;
+use App\Http\Controllers\Backend\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +113,14 @@ Route::controller(SupplierController::class)->group(function(){
       Route::get('/edit/employee/attend/{date}','EditEmployeeAttendence')->name('employee.attend.edit'); 
       Route::get('/view/employee/attend/{date}','ViewEmployeeAttendence')->name('employee.attend.view'); 
     });
+
+    ///Category All Route 
+     Route::controller(CategoryController::class)->group(function(){
+     Route::get('/all/category','AllCategory')->name('all.category'); 
+  
+     });
+  
+  
 
 });  //auth middleware
 
