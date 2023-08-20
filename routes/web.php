@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\SalaryController;
 use App\Http\Controllers\Backend\AttendenceController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,6 +124,12 @@ Route::controller(SupplierController::class)->group(function(){
     Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category'); 
   
      });
+
+  ///Product All Route 
+   Route::controller(ProductController::class)->group(function(){
+   Route::get('/all/product','AllProduct')->name('all.product');
+  
+  });
   
   
 
