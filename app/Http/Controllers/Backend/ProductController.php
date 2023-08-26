@@ -166,5 +166,12 @@ public function BarcodeProduct($id)
 
 }
 
+public function ImportProduct()
+{
+
+    return view('backend.product.import_product');
+
+}
+
 
 }
