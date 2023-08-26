@@ -11,6 +11,7 @@ use Intervention\Image\Facades\Image;
 use Carbon\Carbon; 
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Exports\ProductExport;
+use App\Imports\ProductImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
@@ -179,6 +180,20 @@ public function Export()
 {
 
     return Excel::download(new ProductExport,'products.xlsx');
+
+}
+
+public function Import(Request $request)
+{
+
+    return Excel::import(new ProductImport, $request->file('import_file'));
+
+    $notification = array(
+        'message' => 'Product Imported Successfully',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->back()->with($notification); 
 
 }
 

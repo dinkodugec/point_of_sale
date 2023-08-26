@@ -138,6 +138,7 @@ Route::controller(SupplierController::class)->group(function(){
 
    Route::get('/import/product','ImportProduct')->name('import.product');
    Route::get('/export','Export')->name('export');
+   Route::post('/import','Import')->name('import');
   });
   
   
