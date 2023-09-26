@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\AttendenceController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ExpenseController;
+use App\Http\Controllers\Backend\PosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -154,6 +155,14 @@ Route::controller(SupplierController::class)->group(function(){
     Route::get('/year/expense','YearExpense')->name('year.expense');
   
   });
+
+  ///POS All Route 
+  Route::controller(PosController::class)->group(function(){
+
+  Route::get('/pos','Pos')->name('pos');
+ 
+ 
+ });
   
 
 });  //auth middleware
