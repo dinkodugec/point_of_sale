@@ -47,5 +47,36 @@ class PosController extends Controller
 
     } 
 
+    
+    public function CartUpdate(Request $request,$rowId)
+    {
+
+        $qty = $request->qty;
+        $update = Cart::update($rowId,$qty);
+
+         $notification = array(
+            'message' => 'Cart Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    } 
+
+    public function CartRemove($rowId)
+    {
+
+        Cart::remove($rowId);
+
+        $notification = array(
+            'message' => 'Cart Remove Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    } 
+
+
 
 }
