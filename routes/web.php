@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ExpenseController;
 use App\Http\Controllers\Backend\PosController;
+use App\Http\Controllers\Backend\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -166,6 +167,13 @@ Route::controller(SupplierController::class)->group(function(){
   Route::get('/cart-remove/{rowId}','CartRemove');
   Route::post('/create-invoice','CreateInvoice');
  
+ 
+ });
+
+ ///Order All Route 
+Route::controller(OrderController::class)->group(function(){
+
+  Route::post('/final-invoice','FinalInvoice');
  
  });
   
