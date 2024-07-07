@@ -224,6 +224,18 @@
 </div>
 </li>
 
+<li>
+    <a href="#permission" data-bs-toggle="collapse">
+        <i class="mdi mdi-email-multiple-outline"></i>
+        <span> Roles And Permission    </span>
+        <span class="menu-arrow"></span>
+    </a>
+    <div class="collapse" id="permission">
+        <ul class="nav-second-level">
+            <li>
+                <a href="{{ route('all.permission') }}">All Permission </a>
+            </li>
+
                  
               
 
