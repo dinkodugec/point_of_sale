@@ -205,4 +205,13 @@ public function StoreRolesPermission(Request $request)
 }// End Method 
 
 
+public function AllRolesPermission()
+{
+
+    $roles = Role::all();
+    return view('backend.pages.roles.all_roles_permission',compact('roles'));
+
+} // End Method 
+
+
 }
