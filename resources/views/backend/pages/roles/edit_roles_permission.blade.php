@@ -21,7 +21,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Edit Role In Permission</a></li>
-
+                        
                     </ol>
                 </div>
                 <h4 class="page-title">Edit Role In Permission</h4>
@@ -31,22 +31,23 @@
                         <!-- end page title -->
 
 <div class="row">
-
+    
 
   <div class="col-lg-8 col-xl-12">
 <div class="card">
     <div class="card-body">
-
-
-
-
+                                    
+                                      
+                                         
+                                           
 
     <!-- end timeline content-->
 
     <div class="tab-pane" id="settings">
         <form id="myForm" method="post" action="{{ route('role.permission.update',$role->id) }}" enctype="multipart/form-data">
+ {{--        <form id="myForm" method="post" action="{{ route('role.permission.store') }}" enctype="multipart/form-data"> --}}
             @csrf
-
+ 
 
             <div class="row"> 
 
@@ -54,7 +55,7 @@
         <div class="form-group mb-3">
             <label for="firstname" class="form-label"> Roles Name </label>
             <h3> {{ $role->name }} </h3>
-
+           
         </div>
     </div>
 
@@ -62,7 +63,7 @@
         <input class="form-check-input" type="checkbox" value="" id="customckeck15"  >
         <label class="form-check-label" for="customckeck15">Primary</label>
        </div>
-
+ 
         <hr>
 
         @foreach($permission_groups as $group)
@@ -82,7 +83,7 @@
 
             <div class="col-9">
 
-
+            
 
         @foreach($permissions as $permission)
          <div class="form-check mb-2 form-check-primary">
@@ -93,22 +94,22 @@
        <br>
 
             </div>
-
+            
         </div> <!-- end row -->
         @endforeach
 
             </div> <!-- end row -->
-
-
-
+ 
+        
+            
             <div class="text-end">
                 <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i> Save</button>
             </div>
         </form>
     </div>
     <!-- end settings content-->
-
-
+    
+                                       
                                     </div>
                                 </div> <!-- end card-->
 
@@ -128,10 +129,11 @@
             }else{
                 $('input[type = checkbox]').prop('checked',false);
             } 
+
         });
    </script>
 
-
+ 
 
 
 @endsection
