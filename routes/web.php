@@ -56,8 +56,8 @@ Route::middleware(['auth'])->group(function() {
     /// Employee - group controller 
       Route::controller(EmployeeController::class)->group(function(){
 
-      Route::get('/all/employee','AllEmployee')->name('all.employee');
-      Route::get('/add/employee','AddEmployee')->name('add.employee');
+      Route::get('/all/employee','AllEmployee')->name('all.employee')->middleware('permission:employee.all');
+      Route::get('/add/employee','AddEmployee')->name('add.employee')->middleware('permission:employee.add');
       Route::post('/store/employee','StoreEmployee')->name('employee.store');
       Route::get('/edit/employee/{id}','EditEmployee')->name('edit.employee');
       Route::post('/update/employee','UpdateEmployee')->name('employee.update');
