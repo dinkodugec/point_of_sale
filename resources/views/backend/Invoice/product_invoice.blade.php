@@ -192,10 +192,7 @@
                     </div>
 
 
-                        <div class="mb-3">
-             <label for="username" class="form-label">Due Amount</label>
-     <input class="form-control" type="text" name="due" placeholder="Due Amount ">
-                    </div>
+             
 
 
                     <div class="mb-3 text-center">
