@@ -181,6 +181,11 @@ Route::controller(OrderController::class)->group(function(){
   Route::get('/complete/order','CompleteOrder')->name('complete.order');
   Route::get('/stock','StockManage')->name('stock.manage');
 
+  
+ //// Due All Route 
+
+ Route::get('/pending/due','PendingDue')->name('pending.due');
+
   Route::get('/order/invoice-download/{order_id}','OrderInvoice');
  
  });
