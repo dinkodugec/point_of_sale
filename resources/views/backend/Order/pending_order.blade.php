@@ -53,10 +53,12 @@
                 <td>{{ $item->payment_status }}</td>
                 <td>{{ $item->invoice_no }}</td>
                 <td>{{ $item->pay }}</td>
-                <td> <span class="badge bg-danger">{{ $item->order_status }}</span> </td>
+                <td> <span class="badge bg-warning">{{ $item->order_status }}</span> </td>
                 <td>
                     <a href="{{ route('order.details',$item->id) }}" 
                      class="btn btn-blue rounded-pill waves-effect waves-light"> Details </a> 
+
+                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup-modal" id="{{ $item->id }}" onclick="orderDue(this.id)" >Pay Due </button> 
 
                 </td>
             </tr>

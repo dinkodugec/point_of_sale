@@ -184,9 +184,10 @@ Route::controller(OrderController::class)->group(function(){
   
  //// Due All Route 
 
- Route::get('/pending/due','PendingDue')->name('pending.due');
+  Route::get('/pending/due','PendingDue')->name('pending.due');
 
   Route::get('/order/invoice-download/{order_id}','OrderInvoice');
+  Route::get('/order/due/{id}','OrderDueAjax');
  
  });
 
@@ -228,6 +229,7 @@ Route::controller(RoleController::class)->group(function(){
    Route::get('/admin/delete/roles/{id}','AdminDeleteRoles')->name('admin.delete.roles');
  
  });
+ 
  
  
   
