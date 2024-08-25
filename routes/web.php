@@ -188,6 +188,7 @@ Route::controller(OrderController::class)->group(function(){
 
   Route::get('/order/invoice-download/{order_id}','OrderInvoice');
   Route::get('/order/due/{id}','OrderDueAjax');
+  Route::post('/update/due','UpdateDue')->name('update.due');
  
  });
 
